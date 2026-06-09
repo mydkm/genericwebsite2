@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Portfolio for a controls engineer and mechanical engineer building autonomous systems and research infrastructure."
+    />
+    <title>Portfolio | Joshua Davidov</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
+        },
+        svg: {
+          fontCache: "global",
+        },
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <canvas class="pendulum-canvas" id="pendulum-canvas" aria-hidden="true"></canvas>
+    <div class="pendulum-controls" role="group" aria-label="Pendulum controls">
+      <button class="pendulum-control pendulum-toggle" id="text-toggle" type="button" aria-label="Hide website text" aria-pressed="false">T</button>
+      <button class="pendulum-control pendulum-add" id="pendulum-add" type="button" aria-label="Add pendulum">+</button>
+    </div>
+    <aside class="equation-cell" aria-labelledby="equation-title" aria-hidden="true">
+      <h2 id="equation-title">Double Pendulum Model</h2>
+      <p>The background integrates a gravity-free, undamped two-link pendulum from random initial conditions.</p>
+      <div class="equation-cell__math">
+        \[
+        \dot{\theta}_1 = \omega_1, \qquad \dot{\theta}_2 = \omega_2, \qquad \Delta = \theta_1 - \theta_2
+        \]
+        \[
+        \dot{\omega}_1 = \frac{-2\sin(\Delta)m_2\left(\omega_2^2L_2 + \omega_1^2L_1\cos(\Delta)\right)}{D_1}
+        \]
+        \[
+        \dot{\omega}_2 = \frac{2\sin(\Delta)\left(\omega_1^2L_1(m_1 + m_2) + \omega_2^2L_2m_2\cos(\Delta)\right)}{D_2}
+        \]
+        \[
+        D_1 = L_1\left(2m_1 + m_2 - m_2\cos(2\Delta)\right)
+        \]
+        \[
+        D_2 = L_2\left(2m_1 + m_2 - m_2\cos(2\Delta)\right)
+        \]
+      </div>
+      <dl>
+        <div>
+          <dt>State</dt>
+          <dd>\(\theta_1, \theta_2, \omega_1, \omega_2\)</dd>
+        </div>
+        <div>
+          <dt>Randomized</dt>
+          <dd>\(L_1, L_2, m_1, m_2, \theta_1, \theta_2, \omega_1, \omega_2\)</dd>
+        </div>
+      </dl>
+    </aside>
+    <main class="site-shell" id="top">
+      <section class="hero" aria-labelledby="site-title">
+        <div class="hero__title-cell">
+          <div class="hero__eyebrow">JOSHUA DAVIDOV</div>
+          <h1 id="site-title">Fusion Energy | Mechanical Engineering</h1>
+          <div class="contact-row" aria-label="Contact links">
+            <a href="https://github.com/mydkm">github: @mydkm</a>
+            <a href="mailto:josh.davidov@gmail.com">email: josh.davidov [at] gmail [dot] com</a>
+          </div>
+        </div>
+        <p class="hero__summary">
+          
+        </p>
+        <p class="hero__cta">
+          Interested in fusion energy or reinforcement learning?
+          Let&rsquo;s talk.
+        </p>
+      </section>
+
+      <section class="latest" aria-labelledby="latest-title">
+        <div>
+          <p class="section-kicker">Latest from the blog</p>
+          <h2 id="latest-title">Leaky Abstractions</h2>
+          <p>
+            Software is principally concerned with abstractions. Instead of
+            writing binary, we have programming languages that abstract away the
+            machine-readable details. Instead of repeating thousands of lines of
+            code, we rely on layers that let us move faster.
+          </p>
+        </div>
+        <a class="text-link" href="#projects">Read post →</a>
+      </section>
+
+      <section class="projects" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="section-kicker">Selected work</p>
+          <h2 id="projects-title">Medical AI systems, research tools, and engineering labs</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card project-card--featured">
+            <header class="project-card__header">
+              <h3>Eosin</h3>
+              <span>open source</span>
+            </header>
+            <div class="project-visual project-visual--histology" role="img" aria-label="Histology workbench preview"></div>
+            <h4>Next-generation WSI workbench</h4>
+            <p>
+              A collaborative whole-slide imaging platform built for
+              computational pathology. Eosin opens gigapixel slides in seconds,
+              supports synced review, and provides annotation workflows for
+              research and clinical engineering teams.
+            </p>
+            <ul class="tags" aria-label="Technologies used for Eosin">
+              <li>rust</li>
+              <li>svelte</li>
+              <li>postgres</li>
+              <li>k8s</li>
+            </ul>
+            <a class="button" href="https://github.com/thavlik">View source</a>
+          </article>
+
+          <article class="project-card project-card--featured">
+            <header class="project-card__header">
+              <h3>EOV</h3>
+              <span>open source</span>
+            </header>
+            <div class="project-visual project-visual--viewer" role="img" aria-label="Whole-slide image viewer preview"></div>
+            <h4>A lightweight WSI viewer</h4>
+            <p>
+              EOV is a cross-platform desktop viewer for whole-slide images,
+              designed to make gigapixel pathology slides easy to explore
+              locally. It keeps the workflow lean while preserving precision
+              and performance.
+            </p>
+            <ul class="tags" aria-label="Technologies used for EOV">
+              <li>rust</li>
+              <li>slint</li>
+              <li>vulkan</li>
+            </ul>
+            <a class="button" href="https://github.com/thavlik">Visit site</a>
+          </article>
+
+          <article class="project-card project-card--accent">
+            <header class="project-card__header">
+              <h3>HistoVAE</h3>
+              <span>open source</span>
+            </header>
+            <div class="project-visual project-visual--vae" role="img" aria-label="HistoVAE logo preview"></div>
+            <h4>Lightning-fast β-VAE for histopathology</h4>
+            <p>
+              A high-performance variational autoencoder for whole-slide
+              histopathology images, built with parallel implementation choices
+              that support fast experimentation and model inspection.
+            </p>
+            <ul class="tags" aria-label="Technologies used for HistoVAE">
+              <li>python</li>
+              <li>pytorch</li>
+              <li>docker</li>
+            </ul>
+            <a class="button" href="https://github.com/thavlik">GitHub</a>
+          </article>
+
+          <article class="project-card">
+            <header class="project-card__header">
+              <h3>Cyto</h3>
+              <span>open source</span>
+            </header>
+            <div class="project-visual project-visual--timeline" role="img" aria-label="Research timeline preview"></div>
+            <h4>Biomedical research at scale</h4>
+            <p>
+              An early-stage biomedical analysis platform with target
+              applications in bioinformatics, biochemistry, and computational
+              pathology. Built around transparent workflows and reproducible
+              data handling.
+            </p>
+            <ul class="tags">
+              <li>go</li>
+              <li>rust</li>
+              <li>python</li>
+              <li>postgres</li>
+            </ul>
+            <a class="button" href="https://github.com/thavlik">View source</a>
+          </article>
+
+          <article class="project-card project-card--muted">
+            <header class="project-card__header">
+              <h3>Synapse</h3>
+              <span>closed source</span>
+            </header>
+            <div class="project-visual project-visual--terminal" role="img" aria-label="Clinical assistant interface preview"></div>
+            <h4>AI-native LMS, working title</h4>
+            <p>
+              A learning-management system concept designed around medical
+              curricula, asynchronous collaboration, and answer-tracing tools
+              for educators who need defensible AI-assisted workflows.
+            </p>
+            <ul class="tags tags--warm">
+              <li>rust</li>
+              <li>llm</li>
+              <li>svelte</li>
+            </ul>
+            <span class="availability">Closed-source project — media available on request.</span>
+          </article>
+
+          <article class="project-card project-card--muted">
+            <header class="project-card__header">
+              <h3>Seer</h3>
+              <span>closed source</span>
+            </header>
+            <div class="project-visual project-visual--search" role="img" aria-label="Hybrid search engine preview"></div>
+            <h4>Hybrid neural and keyword search</h4>
+            <p>
+              A multimodal search engine that blends neural and keyword
+              retrieval. Seer specializes in full-spectrum medical school
+              curriculum assets, from slideshows to video and question banks.
+            </p>
+            <ul class="tags tags--warm">
+              <li>rust</li>
+              <li>kafka</li>
+              <li>postgres</li>
+            </ul>
+            <span class="availability">Closed-source project — demo available on request.</span>
+          </article>
+
+          <article class="project-card">
+            <header class="project-card__header">
+              <h3>beebs.dev</h3>
+              <span>community</span>
+            </header>
+            <div class="project-visual project-visual--lab" role="img" aria-label="Research lab website preview"></div>
+            <h4>Beebles Laboratory thumbnail</h4>
+            <p>
+              An open-source research and engineering lab focused on research
+              education, automation, and practical tooling for scientific
+              computing and reproducible workflows.
+            </p>
+            <ul class="tags">
+              <li>python</li>
+              <li>go</li>
+              <li>kubernetes</li>
+            </ul>
+            <a class="button" href="https://github.com/thavlik">Visit lab</a>
+          </article>
+
+          <article class="project-card">
+            <header class="project-card__header">
+              <h3>Lyfe</h3>
+              <span>open source</span>
+            </header>
+            <div class="project-visual project-visual--cells" role="img" aria-label="Molecular simulation preview"></div>
+            <h4>3D molecular cell biology simulator</h4>
+            <p>
+              A GPU-accelerated molecular cell biology sandbox exploring
+              transport, reaction rules, thermal simulation, and scalable visual
+              experimentation for emergent cellular behavior.
+            </p>
+            <ul class="tags">
+              <li>rust</li>
+              <li>lean</li>
+              <li>vulkan</li>
+            </ul>
+            <a class="button" href="https://github.com/thavlik">View source</a>
+          </article>
+
+          <article class="project-card">
+            <header class="project-card__header">
+              <h3>TesseraDB</h3>
+              <span>open source</span>
+            </header>
+            <div class="project-visual project-visual--vectors" role="img" aria-label="Vector database preview"></div>
+            <h4>Soft real-time vector DB engine</h4>
+            <p>
+              A high-performance vector database engine focused on explicit
+              topology, interpretable storage, and tunable search behavior for
+              bounded real-time constraints.
+            </p>
+            <ul class="tags">
+              <li>zig</li>
+            </ul>
+            <a class="button" href="https://github.com/thavlik">View source</a>
+          </article>
+
+          <article class="project-card">
+            <header class="project-card__header">
+              <h3>gio.gg</h3>
+              <span>open source</span>
+            </header>
+            <div class="project-visual project-visual--game" role="img" aria-label="Browser game platform preview"></div>
+            <h4>Multiplayer Doom in the browser</h4>
+            <p>
+              A browser-based multiplayer game platform with matchmaking,
+              session management, and content delivery. Built to keep real-time
+              gameplay responsive in constrained environments.
+            </p>
+            <ul class="tags">
+              <li>rust</li>
+              <li>wasm</li>
+              <li>postgres</li>
+            </ul>
+            <a class="button" href="https://github.com/thavlik">View source</a>
+          </article>
+
+          <article class="project-card">
+            <header class="project-card__header">
+              <h3>strim</h3>
+              <span>open source</span>
+            </header>
+            <div class="project-visual project-visual--stream" role="img" aria-label="Live stream infrastructure preview"></div>
+            <h4>Scalable live stream infrastructure</h4>
+            <p>
+              Distributed, fault-tolerant live stream syndication infrastructure
+              for orchestration, monitoring, storage, and low-latency stream
+              transport.
+            </p>
+            <ul class="tags">
+              <li>rust</li>
+              <li>ffmpeg</li>
+              <li>kubernetes</li>
+            </ul>
+            <a class="button" href="https://github.com/thavlik">View source</a>
+          </article>
+
+          <article class="project-card">
+            <header class="project-card__header">
+              <h3>AI Portfolio</h3>
+              <span>open source</span>
+            </header>
+            <div class="project-visual project-visual--portfolio" role="img" aria-label="AI portfolio banner preview"></div>
+            <h4>Machine learning implementations</h4>
+            <p>
+              A collection of machine-learning projects spanning search,
+              computer vision, NLP, and foundational algorithms implemented from
+              first principles.
+            </p>
+            <ul class="tags">
+              <li>python</li>
+              <li>pytorch</li>
+              <li>docker</li>
+            </ul>
+            <a class="button" href="https://github.com/thavlik">View source</a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>B.Sc. Chemistry · Minor in Mathematics · 15+ years engineering</span>
+      <a href="https://github.com/thavlik">GitHub: @thavlik</a>
+      <a href="mailto:me@thavlik.dev">email: me [at] thavlik [dot] dev</a>
+      <a href="#top">Back to top</a>
+    </footer>
+  </body>
+</html>
